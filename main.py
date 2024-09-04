@@ -12,7 +12,7 @@ def create_outline(key):
     port = parsed_url.port
 
     template_vars = {
-        "server_name": host,
+        "server": host,
         "server_port": port,
         "local_port": 1080,  # can be modified as needed
         "password": password,
@@ -22,7 +22,7 @@ def create_outline(key):
 
 
     with open(f'outputs/outline{int(time.time())}.json', 'w') as f:
-        f.write(json.dumps(template_vars))
+        f.write(json.dumps(template_vars, indent=4))
 
 
 if __name__ == "__main__":
